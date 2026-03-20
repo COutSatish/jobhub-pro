@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Briefcase, MapPin, Clock, Globe, Copy, CheckCircle2, ChevronDown, ExternalLink, Settings2, Trash2, History, Share2, Download, Building2, Linkedin, Home, Bookmark, ShieldCheck, Zap, Rocket, Code2, BookText, Network, Users, Target, FileText, ClipboardList, Inbox, Layers, Activity, Compass, Crosshair, Award, Cpu, Anchor, Monitor, Hexagon, ShoppingCart, LayoutGrid, CalendarClock, Database, BadgeDollarSign, Leaf } from 'lucide-react';
+import { Search, Briefcase, MapPin, Clock, Globe, Copy, CheckCircle2, ChevronDown, ExternalLink, Settings2, Trash2, History, Share2, Download, Building2, Linkedin, Home, Bookmark, ShieldCheck, Zap, Rocket, Code2, BookText, Network, Users, Target, FileText, ClipboardList, Inbox, Layers, Activity, Compass, Crosshair, Award, Cpu, Anchor, Monitor, Hexagon, ShoppingCart, LayoutGrid, CalendarClock, Database, BadgeDollarSign, Leaf, Github, Mail } from 'lucide-react';
 
 const platformIcons = {
   wellfound: Users,
@@ -268,12 +268,29 @@ function App() {
           </div>
         </nav>
 
-        {/* Creator Credit */}
-        <div className="mt-auto px-6 pb-2">
-          <div className="pt-6 border-t border-outline-variant/30 text-center">
-            <p className="text-[10px] text-txt-muted/70 font-medium tracking-wide">BUILT BY</p>
-            <p className="text-sm text-white font-bold font-manrope mt-1">Satish Kumar Pyata</p>
-            <p className="text-[10px] text-primary/80 uppercase tracking-widest mt-1.5 font-bold opacity-80">For Everyone</p>
+        {/* Creator Profile Card */}
+        <div className="mt-auto px-4 pb-4">
+          <div className="bg-surface-high/30 backdrop-blur-md border border-outline-variant/30 rounded-2xl p-4 relative overflow-hidden group hover:border-primary/40 transition-colors shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+            
+            <p className="text-[10px] text-txt-muted uppercase font-bold tracking-widest mb-1.5 flex items-center gap-1">Architected By</p>
+            <h4 className="text-white font-manrope font-bold text-sm tracking-tight mb-4">Satish Kumar Pyata</h4>
+            
+            <div className="flex items-center gap-2">
+              <a href="https://github.com/COutSatish" target="_blank" rel="noopener noreferrer" className="flex-1 h-9 rounded-lg bg-surface-highest border border-outline-variant/60 flex items-center justify-center text-txt-muted hover:text-white hover:border-white/50 transition-all hover:-translate-y-0.5 shadow-sm" title="GitHub">
+                <Github className="w-[18px] h-[18px]" />
+              </a>
+              <a href="https://www.linkedin.com/in/satishkumarpyata" target="_blank" rel="noopener noreferrer" className="flex-1 h-9 rounded-lg bg-surface-highest border border-outline-variant/60 flex items-center justify-center text-txt-muted hover:text-[#0A66C2] hover:border-[#0A66C2]/50 transition-all hover:-translate-y-0.5 shadow-sm" title="LinkedIn">
+                <Linkedin className="w-[18px] h-[18px]" />
+              </a>
+              <a href="mailto:satishkumarpyata@gmail.com" className="flex-1 h-9 rounded-lg bg-surface-highest border border-outline-variant/60 flex items-center justify-center text-txt-muted hover:text-secondary hover:border-secondary/50 transition-all hover:-translate-y-0.5 shadow-sm" title="Email Contact">
+                <Mail className="w-[18px] h-[18px]" />
+              </a>
+            </div>
+            
+            <div className="mt-4 pt-3 border-t border-outline-variant/20 inline-block w-full text-center">
+               <p className="text-[9px] text-txt-muted/60 uppercase tracking-widest font-bold">Open Source / For Everyone</p>
+            </div>
           </div>
         </div>
       </aside>
