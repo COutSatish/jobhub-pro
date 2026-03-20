@@ -268,6 +268,14 @@ function App() {
           </div>
         </nav>
 
+        {/* Creator Credit */}
+        <div className="mt-auto px-6 pb-2">
+          <div className="pt-6 border-t border-outline-variant/30 text-center">
+            <p className="text-[10px] text-txt-muted/70 font-medium tracking-wide">BUILT BY</p>
+            <p className="text-sm text-white font-bold font-manrope mt-1">Satish Kumar Pyata</p>
+            <p className="text-[10px] text-primary/80 uppercase tracking-widest mt-1.5 font-bold opacity-80">For Everyone</p>
+          </div>
+        </div>
       </aside>
 
       {/* Main Content Area */}
