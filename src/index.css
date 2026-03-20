@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-txt antialiased selection:bg-primary/40;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+    font-family: 'Manrope', sans-serif;
+  }
+}
+
+@layer utilities {
+  .ghost-border {
+    @apply border border-outline-variant/40;
+  }
+  
+  .glass-panel {
+    @apply bg-surface-low/80 backdrop-blur-2xl border border-outline-variant/30 shadow-2xl;
+  }
+  
+  .card-premium {
+    @apply bg-surface-highest rounded-2xl ghost-border hover:border-primary/50 transition-all duration-300 relative overflow-hidden;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-br from-primary to-primary-container text-[#450086] font-bold rounded-xl px-4 py-3 shadow-[0_0_20px_rgba(216,185,255,0.2)] hover:shadow-[0_0_30px_rgba(216,185,255,0.4)] transition-all flex items-center justify-center gap-2;
+  }
+  
+  .input-premium {
+    @apply w-full bg-surface-highest ghost-border rounded-xl px-4 py-3 text-txt focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all placeholder:text-txt-muted/50 font-inter;
+  }
+  
+  /* Custom scrollbar for sidebar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-highest rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-outline-variant;
+  }
+}
