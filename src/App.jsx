@@ -288,6 +288,7 @@ function App() {
               </a>
             </div>
             
+            <p className="mt-4 pt-3 border-t border-outline-variant/20 text-[10px] text-txt-muted/60 italic text-center leading-relaxed">"While others scroll endlessly, you search surgically."</p>
           </div>
         </div>
       </aside>
