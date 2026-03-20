@@ -288,9 +288,6 @@ function App() {
               </a>
             </div>
             
-            <div className="mt-4 pt-3 border-t border-outline-variant/20 inline-block w-full text-center">
-               <p className="text-[9px] text-txt-muted/60 uppercase tracking-widest font-bold">Open Source / For Everyone</p>
-            </div>
           </div>
         </div>
       </aside>
