@@ -280,10 +280,10 @@ function App() {
               <a href="https://github.com/COutSatish" target="_blank" rel="noopener noreferrer" className="flex-1 h-9 rounded-lg bg-surface-highest border border-outline-variant/60 flex items-center justify-center text-txt-muted hover:text-white hover:border-white/50 transition-all hover:-translate-y-0.5 shadow-sm" title="GitHub">
                 <Github className="w-[18px] h-[18px]" />
               </a>
-              <a href="https://www.linkedin.com/in/satishkumarpyata" target="_blank" rel="noopener noreferrer" className="flex-1 h-9 rounded-lg bg-surface-highest border border-outline-variant/60 flex items-center justify-center text-txt-muted hover:text-[#0A66C2] hover:border-[#0A66C2]/50 transition-all hover:-translate-y-0.5 shadow-sm" title="LinkedIn">
+              <a href="https://www.linkedin.com/in/satishpyata" target="_blank" rel="noopener noreferrer" className="flex-1 h-9 rounded-lg bg-surface-highest border border-outline-variant/60 flex items-center justify-center text-txt-muted hover:text-[#0A66C2] hover:border-[#0A66C2]/50 transition-all hover:-translate-y-0.5 shadow-sm" title="LinkedIn">
                 <Linkedin className="w-[18px] h-[18px]" />
               </a>
-              <a href="mailto:satishkumarpyata@gmail.com" className="flex-1 h-9 rounded-lg bg-surface-highest border border-outline-variant/60 flex items-center justify-center text-txt-muted hover:text-secondary hover:border-secondary/50 transition-all hover:-translate-y-0.5 shadow-sm" title="Email Contact">
+              <a href="mailto:Satishkumar.pyata@gmail.com" className="flex-1 h-9 rounded-lg bg-surface-highest border border-outline-variant/60 flex items-center justify-center text-txt-muted hover:text-secondary hover:border-secondary/50 transition-all hover:-translate-y-0.5 shadow-sm" title="Email Contact">
                 <Mail className="w-[18px] h-[18px]" />
               </a>
             </div>
