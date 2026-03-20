@@ -1,16 +1,42 @@
-# React + Vite
+<div align="center">
+  
+# JobHub Pro 🚀
+**The Ultimate Boolean Search Architect for Job Seekers**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+</div>
 
-Currently, two official plugins are available:
+JobHub Pro is a high-performance, precision-engineered React application that instantly translates human job requirements into aggressively optimized Boolean search queries across the web's largest employment databases. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Key Features
+- **30+ Supported ATS Platforms**: Automatically structures queries for native applicant tracking systems like Workday, Greenhouse, Lever, and Taleo. 
+- **Tech Giant Scans**: Built-in 1-click directories for FAANG and enterprise tech companies (Apple, Netflix, Google, Meta).
+- **Market Intelligence**: Direct integrated deep searches for Salary Data, Interview Reviews, and Employee sentiment on Glassdoor and TeamBlind.
+- **Complex URL Generation**: Supports Strict Title mode (`intitle:`), Negative Exclusions (`-`), location mapping, and grouped boolean logic seamlessly.
 
-## React Compiler
+## 🛠️ Tech Stack
+- **React 18** + **Vite**
+- **TailwindCSS** (Premium glassmorphism UI & custom theming)
+- **Lucide React** (Dynamic programmatic iconography)
+- **Framer Motion** (Micro-animations and fluid render states)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Getting Started
+To run this project locally:
 
-## Expanding the ESLint configuration
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/COutSatish/jobhub-pro.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🏗️ Architecture
+The underlying core data structures and search generation mathematical logic sequences are fully abstracted to a pure engine located in `src/utils/searchLogic.js`. This guarantees complete separation of business logic from the UI/presentation layer in `src/App.jsx`.
+
+---
+*Built for precision and unparalleled speed in the modern job market.*
