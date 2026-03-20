@@ -62,11 +62,11 @@ function App() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.get('title')) setJobTitle(decodeURIComponent(params.get('title')));
-    if (params.get('location')) setLocation(decodeURIComponent(params.get('location')));
+    if (params.get('title')) setJobTitle(params.get('title'));
+    if (params.get('location')) setLocation(params.get('location'));
     if (params.get('remote') === 'true') setIsRemote(true);
-    if (params.get('exclude')) setExcludedKeywords(decodeURIComponent(params.get('exclude')));
-    if (params.get('skills')) setRequiredSkills(decodeURIComponent(params.get('skills')));
+    if (params.get('exclude')) setExcludedKeywords(params.get('exclude'));
+    if (params.get('skills')) setRequiredSkills(params.get('skills'));
     if (params.get('noRemote') === 'true') setExcludeRemote(true);
     if (params.get('strict') === 'true') setStrictMode(true);
     if (params.get('time')) setTimeframe(params.get('time'));
@@ -76,11 +76,11 @@ function App() {
   useEffect(() => {
     const updateUrl = () => {
       const params = new URLSearchParams();
-      if (jobTitle) params.set('title', encodeURIComponent(jobTitle));
-      if (location) params.set('location', encodeURIComponent(location));
+      if (jobTitle) params.set('title', jobTitle);
+      if (location) params.set('location', location);
       if (isRemote) params.set('remote', 'true');
-      if (excludedKeywords) params.set('exclude', encodeURIComponent(excludedKeywords));
-      if (requiredSkills) params.set('skills', encodeURIComponent(requiredSkills));
+      if (excludedKeywords) params.set('exclude', excludedKeywords);
+      if (requiredSkills) params.set('skills', requiredSkills);
       if (excludeRemote) params.set('noRemote', 'true');
       if (strictMode) params.set('strict', 'true');
       if (timeframe !== 'any') params.set('time', timeframe);
