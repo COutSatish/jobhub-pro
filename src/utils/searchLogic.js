@@ -5,7 +5,7 @@ export const startupPlatforms = [
   { id: 'ashby', name: 'Ashby', query: 'site:jobs.ashbyhq.com' },
   { id: 'homerun', name: 'Homerun', query: 'site:homerun.co' },
   { id: 'dover', name: 'Dover', query: 'site:app.dover.com/apply' },
-  { id: 'notion', name: 'Notion Boards', query: 'site:notion.site "careers" OR "jobs"' },
+  { id: 'notion', name: 'Notion Boards', query: 'site:notion.site ("careers" OR "jobs")' },
   { id: 'careerpuck', name: 'CareerPuck', query: 'site:careerpuck.com' },
 ];
 
@@ -99,7 +99,9 @@ export function buildKeywords(params) {
   }
 
   if (location && !isRemote) {
-    keywords.push(`"${location}"`);
+    // Use unquoted location words for broader ATS compatibility
+    const cleanLoc = location.replace(/,/g, '').trim();
+    keywords.push(cleanLoc);
   }
 
   if (isRemote) {
