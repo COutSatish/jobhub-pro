@@ -143,6 +143,16 @@ function App() {
   const params = { jobTitle, location, isRemote, excludeRemote, excludedKeywords, requiredSkills, strictMode, timeframe };
   const hasQuery = jobTitle.length > 0;
 
+  // Master Scan: batch platforms into groups of 3 and open each as a separate tab
+  const batchMasterScan = (platforms) => {
+    const batchSize = 3;
+    for (let i = 0; i < platforms.length; i += batchSize) {
+      const batch = platforms.slice(i, i + batchSize);
+      const url = generateCombinedSearchUrl(engine, batch, params);
+      window.open(url, '_blank');
+    }
+  };
+
   const handleExportUrls = () => {
     const allUrls = [
       ...modernAts.map(p => `${p.name}: ${generateSearchUrl(engine, p.query, params)}`),
@@ -494,15 +504,15 @@ function App() {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                <a href={generateCombinedSearchUrl(engine, startupPlatforms, params)} target="_blank" rel="noopener noreferrer" className="w-full px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 border border-secondary-container/30 bg-secondary-container/10 hover:bg-secondary-container/20 transition-all group">
+                <button onClick={() => batchMasterScan(startupPlatforms)} className="w-full px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 border border-secondary-container/30 bg-secondary-container/10 hover:bg-secondary-container/20 transition-all group cursor-pointer">
                   <Globe className="w-4 h-4 text-secondary-container group-hover:text-white transition-colors" /> <span className="text-secondary-container group-hover:text-white transition-colors">Master Startup Scan</span>
-                </a>
-                <a href={generateCombinedSearchUrl(engine, modernAts, params)} target="_blank" rel="noopener noreferrer" className="w-full px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 border border-primary/30 bg-primary/10 hover:bg-primary/20 transition-all group">
+                </button>
+                <button onClick={() => batchMasterScan(modernAts)} className="w-full px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 border border-primary/30 bg-primary/10 hover:bg-primary/20 transition-all group cursor-pointer">
                   <Search className="w-4 h-4 text-primary group-hover:text-white transition-colors" /> <span className="text-primary group-hover:text-white transition-colors">Master Modern ATS</span>
-                </a>
-                <a href={generateCombinedSearchUrl(engine, enterprisePlatforms, params)} target="_blank" rel="noopener noreferrer" className="w-full px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 border border-tertiary/50 bg-tertiary/10 hover:bg-tertiary/20 transition-all group">
+                </button>
+                <button onClick={() => batchMasterScan(enterprisePlatforms)} className="w-full px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 border border-tertiary/50 bg-tertiary/10 hover:bg-tertiary/20 transition-all group cursor-pointer">
                   <Building2 className="w-4 h-4 text-tertiary group-hover:text-white transition-colors" /> <span className="text-tertiary group-hover:text-white transition-colors">Master Enterprise Scan</span>
-                </a>
+                </button>
             </div>
           </motion.div>
         )}
