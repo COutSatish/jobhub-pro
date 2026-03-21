@@ -130,7 +130,16 @@ function App() {
     localStorage.setItem('visitedJobLinks', JSON.stringify([...newVisited]));
   };
 
-  const clearVisited = () => {
+  const resetSearch = () => {
+    setJobTitle('');
+    setLocation('');
+    setIsRemote(false);
+    setExcludedKeywords('');
+    setRequiredSkills('');
+    setExcludeRemote(false);
+    setStrictMode(false);
+    setTimeframe('any');
+    setSelectedEngine('google');
     setVisitedLinks(new Set());
     localStorage.removeItem('visitedJobLinks');
   };
@@ -438,11 +447,10 @@ function App() {
                  {/* Reset Button (Bottom Right) */}
                  <div className="flex-shrink-0">
                    <button 
-                    onClick={clearVisited}
-                    disabled={visitedLinks.size === 0}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-xs transition-all ${visitedLinks.size > 0 ? 'bg-surface-low hover:bg-surface border border-outline-variant/40 text-txt-muted hover:text-white cursor-pointer' : 'bg-transparent text-txt-muted/30 cursor-not-allowed'}`}
+                    onClick={resetSearch}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-xs transition-all bg-surface-low hover:bg-surface border border-outline-variant/40 text-txt-muted hover:text-white cursor-pointer"
                    >
-                     <History className="w-3 h-3" /> Reset {visitedLinks.size > 0 ? visitedLinks.size : ''} Visited
+                     <Trash2 className="w-4 h-4" /> Clear All Search Data
                    </button>
                  </div>
               </div>
