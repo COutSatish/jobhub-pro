@@ -143,8 +143,7 @@ function App() {
   const params = { jobTitle, location, isRemote, excludeRemote, excludedKeywords, requiredSkills, strictMode, timeframe };
   const hasQuery = jobTitle.length > 0;
 
-  // Helper to chunk arrays into batches
-  const chunkArray = (arr, size) => Array.from({ length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size));
+
 
   const handleExportUrls = () => {
     const allUrls = [
@@ -496,49 +495,7 @@ function App() {
                </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                {/* Startup Scan */}
-                <div className="flex flex-col gap-3 p-4 rounded-xl border border-secondary-container/30 bg-secondary-container/5 hover:border-secondary-container/50 transition-all">
-                  <div className="text-sm font-bold text-secondary-container flex items-center justify-center gap-2">
-                    <Globe className="w-4 h-4" /> Master Startup Scan
-                  </div>
-                  <div className="grid grid-cols-2 xl:grid-cols-3 gap-2">
-                    {chunkArray(startupPlatforms, 3).map((batch, i) => (
-                       <a key={`startup-batch-${i}`} href={generateCombinedSearchUrl(engine, batch, params)} target="_blank" rel="noopener noreferrer" className="px-2 py-2 rounded-lg text-xs font-bold text-center border border-secondary-container/20 bg-secondary-container/10 hover:bg-secondary-container/30 text-white transition-all">
-                         Part {i + 1}
-                       </a>
-                    ))}
-                  </div>
-                </div>
 
-                {/* ATS Scan */}
-                <div className="flex flex-col gap-3 p-4 rounded-xl border border-primary/30 bg-primary/5 hover:border-primary/50 transition-all">
-                  <div className="text-sm font-bold text-primary flex items-center justify-center gap-2">
-                     <Search className="w-4 h-4" /> Master Modern ATS
-                  </div>
-                  <div className="grid grid-cols-2 xl:grid-cols-3 gap-2">
-                    {chunkArray(modernAts, 3).map((batch, i) => (
-                       <a key={`ats-batch-${i}`} href={generateCombinedSearchUrl(engine, batch, params)} target="_blank" rel="noopener noreferrer" className="px-2 py-2 rounded-lg text-xs font-bold text-center border border-primary/20 bg-primary/10 hover:bg-primary/30 text-white transition-all">
-                         Part {i + 1}
-                       </a>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Enterprise Scan */}
-                <div className="flex flex-col gap-3 p-4 rounded-xl border border-tertiary/50 bg-tertiary/5 hover:border-tertiary/70 transition-all">
-                  <div className="text-sm font-bold text-tertiary flex items-center justify-center gap-2">
-                     <Building2 className="w-4 h-4" /> Master Enterprise
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {chunkArray(enterprisePlatforms, 3).map((batch, i) => (
-                       <a key={`ent-batch-${i}`} href={generateCombinedSearchUrl(engine, batch, params)} target="_blank" rel="noopener noreferrer" className="px-2 py-2 rounded-lg text-xs font-bold text-center border border-tertiary/20 bg-tertiary/10 hover:bg-tertiary/30 text-white transition-all">
-                         Part {i + 1}
-                       </a>
-                    ))}
-                  </div>
-                </div>
-            </div>
           </motion.div>
         )}
 
