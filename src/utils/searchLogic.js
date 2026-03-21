@@ -88,7 +88,7 @@ export function buildKeywords(params) {
   let keywords = [];
 
   if (jobTitle) {
-    const title = jobTitle.trim();
+    const title = jobTitle.trim().toLowerCase();
     if (strictMode) {
       keywords.push(`intitle:"${title}"`);
     } else if (title.includes(' ') && !title.startsWith('"')) {
@@ -99,8 +99,8 @@ export function buildKeywords(params) {
   }
 
   if (location && !isRemote) {
-    // Use unquoted location words for broader ATS compatibility
-    const cleanLoc = location.replace(/,/g, '').trim();
+    // Use unquoted lowercase location words for broader ATS compatibility
+    const cleanLoc = location.replace(/,/g, '').trim().toLowerCase();
     keywords.push(cleanLoc);
   }
 
@@ -113,14 +113,14 @@ export function buildKeywords(params) {
   }
 
   if (requiredSkills) {
-    const skills = requiredSkills.split(',').map(s => `"${s.trim()}"`);
+    const skills = requiredSkills.toLowerCase().split(',').map(s => `"${s.trim()}"`);
     if (skills.length > 0) {
       keywords.push(`(${skills.join(' AND ')})`);
     }
   }
 
   if (excludedKeywords) {
-    const excludes = excludedKeywords.split(',').map(k => {
+    const excludes = excludedKeywords.toLowerCase().split(',').map(k => {
       const trimmed = k.trim();
       return trimmed ? `-${trimmed}` : '';
     }).filter(k => k);
