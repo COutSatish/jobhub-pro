@@ -145,19 +145,7 @@ function App() {
 
 
 
-  const handleExportUrls = () => {
-    const allUrls = [
-      ...modernAts.map(p => `${p.name}: ${generateSearchUrl(engine, p.query, params)}`),
-      ...startupPlatforms.map(p => `${p.name}: ${generateSearchUrl(engine, p.query, params)}`),
-      ...enterprisePlatforms.map(p => `${p.name}: ${generateSearchUrl(engine, p.query, params)}`),
-      ...techGiants.map(p => `${p.name}: ${generateSearchUrl(engine, p.query, params)}`),
-      ...majorJobBoards.map(p => `${p.name}: ${generateSearchUrl(engine, p.query, params)}`)
-    ].join('\n\n');
-    
-    navigator.clipboard.writeText(allUrls);
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
-  };
+
 
   const applyHistoryItem = (item) => {
     setJobTitle('');
@@ -414,36 +402,49 @@ function App() {
               </div>
 
               {/* Toggles Row */}
-              <div className="md:col-span-12 flex flex-wrap items-center gap-8 pt-4 mt-2 border-t border-outline-variant/20">
-                 <label className="flex items-center gap-3 cursor-pointer group">
-                  <div className="relative w-10 h-5">
-                    <input type="checkbox" className="sr-only" checked={isRemote} onChange={(e) => setIsRemote(e.target.checked)} />
-                    <div className={`w-10 h-5 rounded-full transition-colors absolute right-0 ${isRemote ? 'bg-secondary-container shadow-[0_0_10px_#00eefc]' : 'bg-surface-highest ghost-border'}`}>
-                      <div className={`absolute top-1 left-1 bg-white w-3 h-3 rounded-full transition-transform ${isRemote ? 'translate-x-5' : ''}`} />
+              <div className="md:col-span-12 flex flex-col md:flex-row md:items-center justify-between gap-6 pt-4 mt-2 border-t border-outline-variant/20">
+                 <div className="flex flex-wrap items-center gap-8">
+                   <label className="flex items-center gap-3 cursor-pointer group">
+                    <div className="relative w-10 h-5">
+                      <input type="checkbox" className="sr-only" checked={isRemote} onChange={(e) => setIsRemote(e.target.checked)} />
+                      <div className={`w-10 h-5 rounded-full transition-colors absolute right-0 ${isRemote ? 'bg-secondary-container shadow-[0_0_10px_#00eefc]' : 'bg-surface-highest ghost-border'}`}>
+                        <div className={`absolute top-1 left-1 bg-white w-3 h-3 rounded-full transition-transform ${isRemote ? 'translate-x-5' : ''}`} />
+                      </div>
                     </div>
-                  </div>
-                  <span className="text-sm font-semibold text-txt-muted group-hover:text-white transition-colors">Remote Only</span>
-                 </label>
+                    <span className="text-sm font-semibold text-txt-muted group-hover:text-white transition-colors">Remote Only</span>
+                   </label>
 
-                 <label className="flex items-center gap-3 cursor-pointer group">
-                  <div className="relative w-10 h-5">
-                    <input type="checkbox" className="sr-only" checked={excludeRemote} onChange={(e) => setExcludeRemote(e.target.checked)} />
-                    <div className={`w-10 h-5 rounded-full transition-colors absolute right-0 ${excludeRemote ? 'bg-primary' : 'bg-surface-highest ghost-border'}`}>
-                      <div className={`absolute top-1 left-1 bg-white w-3 h-3 rounded-full transition-transform ${excludeRemote ? 'translate-x-5' : ''}`} />
+                   <label className="flex items-center gap-3 cursor-pointer group">
+                    <div className="relative w-10 h-5">
+                      <input type="checkbox" className="sr-only" checked={excludeRemote} onChange={(e) => setExcludeRemote(e.target.checked)} />
+                      <div className={`w-10 h-5 rounded-full transition-colors absolute right-0 ${excludeRemote ? 'bg-primary' : 'bg-surface-highest ghost-border'}`}>
+                        <div className={`absolute top-1 left-1 bg-white w-3 h-3 rounded-full transition-transform ${excludeRemote ? 'translate-x-5' : ''}`} />
+                      </div>
                     </div>
-                  </div>
-                  <span className="text-sm font-semibold text-txt-muted group-hover:text-white transition-colors">Exclude Remote Jobs</span>
-                 </label>
-                 
-                 <label className="flex items-center gap-3 cursor-pointer group" title="Requires exact Job Title matches inside the URL or Page Title">
-                  <div className="relative w-10 h-5">
-                    <input type="checkbox" className="sr-only" checked={strictMode} onChange={(e) => setStrictMode(e.target.checked)} />
-                    <div className={`w-10 h-5 rounded-full transition-colors absolute right-0 ${strictMode ? 'bg-tertiary shadow-[0_0_10px_#ff7b72]' : 'bg-surface-highest ghost-border'}`}>
-                      <div className={`absolute top-1 left-1 bg-white w-3 h-3 rounded-full transition-transform ${strictMode ? 'translate-x-5' : ''}`} />
+                    <span className="text-sm font-semibold text-txt-muted group-hover:text-white transition-colors">Exclude Remote Jobs</span>
+                   </label>
+                   
+                   <label className="flex items-center gap-3 cursor-pointer group" title="Requires exact Job Title matches inside the URL or Page Title">
+                    <div className="relative w-10 h-5">
+                      <input type="checkbox" className="sr-only" checked={strictMode} onChange={(e) => setStrictMode(e.target.checked)} />
+                      <div className={`w-10 h-5 rounded-full transition-colors absolute right-0 ${strictMode ? 'bg-tertiary shadow-[0_0_10px_#ff7b72]' : 'bg-surface-highest ghost-border'}`}>
+                        <div className={`absolute top-1 left-1 bg-white w-3 h-3 rounded-full transition-transform ${strictMode ? 'translate-x-5' : ''}`} />
+                      </div>
                     </div>
-                  </div>
-                  <span className="text-sm font-semibold text-txt-muted group-hover:text-white transition-colors">Strict Title Mode</span>
-                 </label>
+                    <span className="text-sm font-semibold text-txt-muted group-hover:text-white transition-colors">Strict Title Mode</span>
+                   </label>
+                 </div>
+
+                 {/* Reset Button (Bottom Right) */}
+                 <div className="flex-shrink-0">
+                   <button 
+                    onClick={clearVisited}
+                    disabled={visitedLinks.size === 0}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-xs transition-all ${visitedLinks.size > 0 ? 'bg-surface-low hover:bg-surface border border-outline-variant/40 text-txt-muted hover:text-white cursor-pointer' : 'bg-transparent text-txt-muted/30 cursor-not-allowed'}`}
+                   >
+                     <History className="w-3 h-3" /> Reset {visitedLinks.size > 0 ? visitedLinks.size : ''} Visited
+                   </button>
+                 </div>
               </div>
 
            </div>
@@ -460,44 +461,7 @@ function App() {
           </motion.div>
         )}
 
-        {/* Master Export Bar */}
-        {hasQuery && (
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl mb-12">
-            <div className="bg-surface-highest border border-outline-variant/30 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden">
-               <div className="absolute top-0 left-0 w-1 h-full bg-secondary-container shadow-[0_0_20px_#00eefc]" />
-               
-               <div className="flex items-center gap-4 pl-2">
-                 <div className="w-12 h-12 rounded-full bg-surface-low ghost-border flex items-center justify-center">
-                   <Download className="w-5 h-5 txt-muted-container" />
-                 </div>
-                 <div>
-                   <h3 className="text-white font-manrope font-bold text-xl">Export All Links</h3>
-                   <p className="text-txt-muted text-sm mt-1 flex items-center gap-2">
-                     Ready to scrape the massive web index.
-                     {visitedLinks.size > 0 && <span className="text-tertiary">({visitedLinks.size} visited)</span>}
-                   </p>
-                 </div>
-               </div>
 
-               <div className="flex items-center gap-3 w-full sm:w-auto">
-                 <button 
-                  onClick={clearVisited}
-                  className="px-5 py-3 rounded-xl font-bold text-sm bg-surface-low hover:bg-surface border border-outline-variant/40 text-txt-muted hover:text-white transition-all w-full sm:w-auto"
-                 >
-                   Reset Progress
-                 </button>
-                 <button 
-                  onClick={handleExportUrls}
-                  className="px-8 py-3 rounded-xl font-bold text-sm bg-secondary-container hover:bg-[#00dbe9] text-[#004f54] shadow-[0_0_15px_rgba(0,238,252,0.3)] hover:shadow-[0_0_25px_rgba(0,238,252,0.5)] transition-all w-full sm:w-auto"
-                 >
-                   {isCopied ? 'COPIED TO CLIPBOARD' : 'DOWNLOAD ALL (CSV / TXT)'}
-                 </button>
-               </div>
-            </div>
-            
-
-          </motion.div>
-        )}
 
         {/* Results Grid */}
         {hasQuery && (
