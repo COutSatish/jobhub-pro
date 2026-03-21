@@ -523,16 +523,6 @@ function App() {
             
             <section>
               <h3 className="text-lg font-bold text-white font-manrope mb-6 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-secondary-container/10 flex items-center justify-center"><Globe className="w-5 h-5 text-secondary-container" /></div>
-                Startup & Niche Platforms
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {startupPlatforms.map((item, index) => renderLinkCard(item, index, <Globe className="w-5 h-5 txt-muted" />))}
-              </div>
-            </section>
-
-            <section>
-              <h3 className="text-lg font-bold text-white font-manrope mb-6 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center"><Briefcase className="w-5 h-5 txt" /></div>
                 Modern ATS Systems
               </h3>
@@ -548,6 +538,16 @@ function App() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {[...techGiants, ...enterprisePlatforms].map((item, index) => renderLinkCard(item, index, <Building2 className="w-5 h-5 txt-muted" />))}
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-lg font-bold text-white font-manrope mb-6 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-secondary-container/10 flex items-center justify-center"><Globe className="w-5 h-5 text-secondary-container" /></div>
+                Startup & Niche Platforms
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {startupPlatforms.map((item, index) => renderLinkCard(item, index, <Globe className="w-5 h-5 txt-muted" />))}
               </div>
             </section>
             
