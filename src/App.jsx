@@ -533,6 +533,16 @@ function App() {
 
             <section>
               <h3 className="text-lg font-bold text-white font-manrope mb-6 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#00eefc]/10 flex items-center justify-center"><Linkedin className="w-5 h-5 text-[#00eefc]" /></div>
+                LinkedIn Scout
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {linkedinQueries.map((item, index) => renderLinkCard(item, index, <Linkedin className="w-5 h-5 txt-muted" />))}
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-lg font-bold text-white font-manrope mb-6 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center"><Building2 className="w-5 h-5 text-tertiary" /></div>
                 Enterprise & Tech Giants
               </h3>
@@ -548,16 +558,6 @@ function App() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {startupPlatforms.map((item, index) => renderLinkCard(item, index, <Globe className="w-5 h-5 txt-muted" />))}
-              </div>
-            </section>
-            
-            <section>
-              <h3 className="text-lg font-bold text-white font-manrope mb-6 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#00eefc]/10 flex items-center justify-center"><Linkedin className="w-5 h-5 text-[#00eefc]" /></div>
-                LinkedIn Scout
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {linkedinQueries.map((item, index) => renderLinkCard(item, index, <Linkedin className="w-5 h-5 txt-muted" />))}
               </div>
             </section>
             
