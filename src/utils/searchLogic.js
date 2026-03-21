@@ -54,9 +54,14 @@ export const subdomains = [
   { id: 'jobs_domain', name: 'Jobs', query: 'site:jobs.*.com OR site:jobs.*.co OR site:jobs.*.io' },
 ];
 
-export const linkedinQueries = [
+export const majorJobBoards = [
   { id: 'li_jobs', name: 'LinkedIn Jobs Directory', query: 'site:linkedin.com/jobs/view/' },
-  { id: 'li_posts', name: 'LinkedIn Recruiter Posts', query: 'site:linkedin.com/posts ("hiring" OR "looking for")' }
+  { id: 'li_posts', name: 'LinkedIn Recruiter Posts', query: 'site:linkedin.com/posts ("hiring" OR "looking for")' },
+  { id: 'indeed', name: 'Indeed', query: 'site:indeed.com/viewjob' },
+  { id: 'dice', name: 'Dice', query: 'site:dice.com/job-detail' },
+  { id: 'ziprecruiter', name: 'ZipRecruiter', query: 'site:ziprecruiter.com/c/' },
+  { id: 'glassdoor_jobs', name: 'Glassdoor Jobs', query: 'site:glassdoor.com/job-listing' },
+  { id: 'monster', name: 'Monster', query: 'site:monster.com/job-openings' }
 ];
 
 export const searchEngines = [

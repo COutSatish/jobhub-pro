@@ -43,7 +43,7 @@ const platformIcons = {
   oracle: Database,
   taleo: Inbox,
 };
-import { modernAts, startupPlatforms, enterprisePlatforms, techGiants, subdomains, linkedinQueries, searchEngines, timeframes, generateSearchUrl, generateCombinedSearchUrl, commonLocations, generateIntelligenceUrl } from './utils/searchLogic';
+import { modernAts, startupPlatforms, enterprisePlatforms, techGiants, subdomains, majorJobBoards, searchEngines, timeframes, generateSearchUrl, generateCombinedSearchUrl, commonLocations, generateIntelligenceUrl } from './utils/searchLogic';
 
 function App() {
   const [jobTitle, setJobTitle] = useState('');
@@ -159,7 +159,7 @@ function App() {
       ...startupPlatforms.map(p => `${p.name}: ${generateSearchUrl(engine, p.query, params)}`),
       ...enterprisePlatforms.map(p => `${p.name}: ${generateSearchUrl(engine, p.query, params)}`),
       ...techGiants.map(p => `${p.name}: ${generateSearchUrl(engine, p.query, params)}`),
-      ...linkedinQueries.map(p => `${p.name}: ${generateSearchUrl(engine, p.query, params)}`)
+      ...majorJobBoards.map(p => `${p.name}: ${generateSearchUrl(engine, p.query, params)}`)
     ].join('\n\n');
     
     navigator.clipboard.writeText(allUrls);
@@ -533,11 +533,11 @@ function App() {
 
             <section>
               <h3 className="text-lg font-bold text-white font-manrope mb-6 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#00eefc]/10 flex items-center justify-center"><Linkedin className="w-5 h-5 text-[#00eefc]" /></div>
-                LinkedIn Scout
+                <div className="w-10 h-10 rounded-xl bg-[#00eefc]/10 flex items-center justify-center"><Target className="w-5 h-5 text-[#00eefc]" /></div>
+                Major Job Boards
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {linkedinQueries.map((item, index) => renderLinkCard(item, index, <Linkedin className="w-5 h-5 txt-muted" />))}
+                {majorJobBoards.map((item, index) => renderLinkCard(item, index, <Target className="w-5 h-5 txt-muted" />))}
               </div>
             </section>
 
